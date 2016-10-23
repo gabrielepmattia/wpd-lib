@@ -31,6 +31,8 @@ namespace WindowsPortableDevicesLib.Domain
 
         public string FriendlyName { get; set; }
 
+        public string DeviceModel { get; set; }
+
         public int DeviceType { get; set; }
 
         void ValidateConnection()
@@ -71,8 +73,13 @@ namespace WindowsPortableDevicesLib.Domain
 
             // Retrieve the friendly name
             string deviceName;
-            propertyValues.GetStringValue(ref DevicePropertyKeys.WPD_DEVICE_MODEL, out deviceName);
+            propertyValues.GetStringValue(ref DevicePropertyKeys.WPD_DEVICE_FRIENDLY_NAME, out deviceName);
             this.FriendlyName = deviceName;
+
+            // Retrieve the friendly name
+            string deviceModel;
+            propertyValues.GetStringValue(ref DevicePropertyKeys.WPD_DEVICE_MODEL, out deviceModel);
+            this.DeviceModel = deviceModel;
 
             // Retrieve the type of device
             int deviceType;
