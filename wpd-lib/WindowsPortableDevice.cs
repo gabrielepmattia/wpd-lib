@@ -76,7 +76,7 @@ namespace WindowsPortableDevicesLib.Domain
             propertyValues.GetStringValue(ref DevicePropertyKeys.WPD_DEVICE_FRIENDLY_NAME, out deviceName);
             this.FriendlyName = deviceName;
 
-            // Retrieve the friendly name
+            // Retrieve the model name
             string deviceModel;
             propertyValues.GetStringValue(ref DevicePropertyKeys.WPD_DEVICE_MODEL, out deviceModel);
             this.DeviceModel = deviceModel;
