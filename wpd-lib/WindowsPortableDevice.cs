@@ -69,17 +69,10 @@ namespace WindowsPortableDevicesLib.Domain
             IPortableDeviceValues propertyValues;
             properties.GetValues("DEVICE", null, out propertyValues);
 
-            // Identify the property to retrieve
-            var property = new _tagpropertykey();
-            property.fmtid = new Guid(0x26D4979A, 0xE643, 0x4626, 0x9E, 0x2B,
-                                      0x73, 0x6D, 0xC0, 0xC9, 0x2F, 0xDC);
-            property.pid = 12;
-
             // Retrieve the friendly name
             string deviceName;
-            propertyValues.GetStringValue(ref property, out deviceName);
+            propertyValues.GetStringValue(ref DevicePropertyKeys.WPD_DEVICE_MODEL, out deviceName);
             this.FriendlyName = deviceName;
-
 
             // Retrieve the type of device
             int deviceType;
