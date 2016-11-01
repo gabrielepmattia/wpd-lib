@@ -446,7 +446,9 @@ namespace WindowsPortableDevicesLib.Domain
             }
             else
             {
-                deviceObject = new PortableDeviceFile(objectId, name);
+                string original_filename;
+                values.GetStringValue(DevicePropertyKeys.WPD_OBJECT_ORIGINAL_FILE_NAME, out original_filename);
+                deviceObject = new PortableDeviceFile(objectId, name, original_filename);
             }
 
             deviceObject.PersistentId = uniqueID;

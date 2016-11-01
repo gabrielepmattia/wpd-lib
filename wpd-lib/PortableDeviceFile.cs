@@ -8,14 +8,17 @@
  */
 using System;
 
-namespace WindowsPortableDevicesLib.Domain
-{
+namespace WindowsPortableDevicesLib.Domain {
     /// <summary>
     /// Description of PortableDeviceFile.
     /// </summary>
-    public class PortableDeviceFile : PortableDeviceObject
-    {
-        public PortableDeviceFile(string id, string name) : base(id, name)
-        { }
+    public class PortableDeviceFile : PortableDeviceObject {
+        public PortableDeviceFile(string id, string name) : base(id, name) { }
+
+        public PortableDeviceFile(string id, string name, string original_filename) : base(id, name) {
+            this.OriginalFileName = original_filename;
+        }
+
+        public string OriginalFileName { get; private set; }
     }
 }
